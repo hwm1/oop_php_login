@@ -1,0 +1,5 @@
+ErrorDocument 500 "Sorry, our script crashed. Oh dear"
+ErrorDocument 500 /cgi-bin/crash-recover
+ErrorDocument 500 http://error.example.com/server_error.html
+ErrorDocument 404 /errors/not_found.html
+ErrorDocument 401 /subscription/how_to_subscribe.html
