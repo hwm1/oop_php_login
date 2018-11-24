@@ -60,8 +60,9 @@ class User extends Dbh
         $stmt->execute();
         $stmt->bind_result($resultCheck);
         $stmt->fetch();
+        $stmt->close();
 
-        if ($resultCheck > 0) {
+        if ($resultCheck) {
             header("Location: ../signup.php?signup=usertaken");
             exit();
         }
@@ -81,7 +82,7 @@ class User extends Dbh
             $this->email, $this->uid, $this->hashedPwd);
 
         $stmt->execute();
-
+        $stmt->close();
         //      return $sql;
 
     }
@@ -111,6 +112,7 @@ class User extends Dbh
 
         //   $result =     $stmt->store_result();
         $result = $stmt->get_result();
+        $stmt->close();
 
         // if ($resultCheck < 1) { //user not found in db
         //     header("Location: ../index.php?login=error");
